@@ -73,17 +73,19 @@ class App extends React.Component {
             );
           })}
         </div>
-        <input
-          className="App-Textarea"
-          placeholder="Type your messsage here..."
-          onChange={updateInput}
-          value={this.state.input}
-        />
-        <p>
-          <button onClick={() => { handleMessage() }}>
-            Send Message
+        <form onSubmit={(event) => { event.preventDefault(); handleMessage() }}>
+          <input
+            className="App-Textarea"
+            placeholder="Type your messsage here..."
+            onChange={updateInput}
+            value={this.state.input}
+          />
+          <p>
+            <button type="submit">
+              Send Message
           </button>
-        </p>
+          </p>
+        </form>
       </div>
     );
   }
